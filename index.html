@@ -51,12 +51,69 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">FaceShot: Bring any Character into Life</h1>
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Anonymous Submission</span>
+            <h1 class="title is-1 publication-title">FaceShot: Bring Any Character into Life</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://jeoyal.github.io/home/" target="_blank">Junyao Gao</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=zh-CN&user=6TA1oPkAAAAJ" target="_blank">Yanan Sun</a><sup>2,&Dagger;,*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://muzishen.github.io/" target="_blank">Fei Shen</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://whitejiang.github.io/" target="_blank">Xin Jiang</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=sVYO0GYAAAAJ&hl=en" target="_blank">Zhening Xing</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://chenkai.site/" target="_blank">Kai Chen</a><sup>2,*</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://vill-lab.github.io/" target="_blank">Cairong Zhao</a><sup>1,*</sup>
+                  </span>
                   </div>
 
-                  
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Tongji University, <sup>2</sup>Shanghai AI lab, <sup>3</sup>Nanjing University of Science and Technology<br>ICLR 2025</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Authors, <sup>&Dagger;</sup>Project Leader</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://openreview.net/pdf?id=oJA1GUqRww" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/open-mmlab/FaceShot" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://www.arxiv.org/abs/2503.00740" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -80,7 +137,6 @@
       <br>
         Animation results of <b>FaceShot</b> applied to characters from various domains—including 3D anime, emojis, 2D anime, toys, animals, and more. Each character smoothly follows the facial movements of the driving video while preserving its original identity, resulting in remarkable animation effects.
       </h2>
-      *Please wait for the video to load, and refresh the webpage if needed.
     </div>
     </div>
   </div>
@@ -95,7 +151,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Portrait animation generates dynamic, realistic videos by mimicking facial expressions from a driven video. However, existing landmark-based methods are constrained by facial landmark detection and motion transfer limitations, resulting in suboptimal performance. In this paper, we present <b>FaceShot</b>, a novel training-free framework designed to animate any character from any driven video, human or non-human, with unprecedented robustness and stability. We achieve this by offering precise and robust landmark results from an appearance-guided landmark matching module and a relative motion transfer module. Together, these components harness the robust semantic correspondences of latent diffusion models to deliver landmarks across a wide range of character types, all without requiring fine-tuning or retraining. With this powerful generalization capability, FaceShot can significantly extend the application of portrait animation by breaking the limitation of landmark detection for any character and driven video. Furthermore, FaceShot is compatible with any landmark-driven animation model, enhancing the realism and consistency of animations while significantly improving overall performance. Extensive experiments on our newly constructed character benchmark CABench confirm that FaceShot consistently surpasses state-of-the-art approaches across any character domain, setting a new standard for open-domain portrait animation. 
+In this paper, we present <b>FaceShot</b>, a novel training-free portrait animation framework designed to bring any character into life from any driven video without fine-tuning or retraining.
+We achieve this by offering precise and robust reposed landmark sequences from an appearance-guided landmark matching module and a coordinate-based landmark retargeting module.
+Together, these components harness the robust semantic correspondences of latent diffusion models to produce facial motion sequence across a wide range of character types.
+After that, we input the landmark sequences into a pre-trained landmark-driven animation model to generate animated video.
+With this powerful generalization capability, FaceShot can significantly extend the application of portrait animation by breaking the limitation of realistic portrait landmark detection for any stylized character and driven video.
+Also, FaceShot is compatible with any landmark-driven animation model, significantly improving overall performance.
+Extensive experiments on our newly constructed character benchmark CharacBench confirm that FaceShot consistently surpasses state-of-the-art (SOTA) approaches across any character domain.
           </p>
         </div>
       </div>
@@ -115,11 +177,11 @@
           <br>
           <div class="item" align="center">
             <!-- Youtube embed code here -->
-            <img src="static/images/framework.jpg" alt="MY ALT TEXT"/>
+            <img src="static/images/framework.png" alt="MY ALT TEXT"/>
           </div>
 <h2 class="subtitle">
       <br>
-            FaceShot first generates precise facial landmarks of the target character with appearance guidance. Next, a relative landmark motion transfer module is applied to generate the landmark sequence. Finally, this landmark sequence is input into an animation model to animate any character from any driving video.
+            FaceShot first generates precise facial landmarks of the target character with appearance guidance. Next, a coordinated-based landmark retargeting module is applied to generate the landmark sequence. Finally, this landmark sequence is input into an animation model to animate any character from any driving video.
       </h2>
 
       </div>
@@ -228,9 +290,6 @@
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Multiple Characters + Single Driven Video</h2>
-<img src="./static/images/mul_name.png"
-             class="interpolation-image"
-             alt="Interpolate start reference image."/>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
@@ -271,9 +330,6 @@
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Videos Longer than 5 Seconds</h2>
-<img src="./static/images/mul_name.png"
-             class="interpolation-image"
-             alt="Interpolate start reference image."/>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
@@ -314,9 +370,6 @@
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Comparison</h2>
-<img src="./static/images/name.png"
-             class="interpolation-image"
-             alt="Interpolate start reference image."/>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
@@ -391,10 +444,6 @@
       </div>
       <b>Black</b> video means that the method failed on this character.
       <br>
-      From left to right: Driven video, MegActor, LivePortrait, Follow Your Emoji, FADM, FaceVid2Vid, X-Portrait, Mofa-Video, AniPortrait, and <b>Ours (FaceShot)</b>.
-      <br>
-      <br>
-      *Please wait for the video to load, and refresh the webpage if needed.
     </div>
   </div>
 </section>
